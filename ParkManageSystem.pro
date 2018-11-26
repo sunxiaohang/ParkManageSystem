@@ -3,8 +3,7 @@
 # Project created by QtCreator 2018-11-16T10:56:38
 #
 #-------------------------------------------------
-
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,10 +25,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        parkmanagement.cpp
+        parkmanagement.cpp \
+    parksystem.cpp \
+    card.cpp \
+    validatecard.cpp
 
 HEADERS += \
-        parkmanagement.h
+        parkmanagement.h \
+    parksystem.h \
+    card.h \
+    validatecard.h
 
 FORMS += \
         parkmanagement.ui
