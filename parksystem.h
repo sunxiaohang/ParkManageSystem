@@ -2,6 +2,7 @@
 #define PARKSYSTEM_H
 #define MAX_NUM_EACH_COLUMN 10
 #include <QTime>
+#include "card.h"
 class ParkSystem
 {
 private:
@@ -12,11 +13,14 @@ private:
 public:
     int randomSelect();
     int randomExit();
+    void setParkArea(Card card);
     int getFreeArea();
     bool getEntenceFlag();
     bool getExitFlag();
     void setEntenceFlag(bool flag);
+    void setParkAreaArray(Card *cardList);
     void setExitFlag(bool flag);
+    void exitCar();
     bool validateRandomArea(int position);
     bool validateRandomTakenArea(int position);
     ParkSystem();
