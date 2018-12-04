@@ -19,11 +19,10 @@ int ParkSystem::randomSelect()
 int ParkSystem::randomExit()
 {
     int randArea=qrand() % (MAX_NUM_EACH_COLUMN*2);
-    while(validateRandomTakenArea(randArea)){
+    while(!validateRandomTakenArea(randArea)){
         randArea=qrand() % (MAX_NUM_EACH_COLUMN*2);
     }
     PARKAREA[randArea/MAX_NUM_EACH_COLUMN][randArea%MAX_NUM_EACH_COLUMN]=false;//park area has been taken
-    freeCount++;
     return randArea;
 }
 bool ParkSystem::validateRandomArea(int position){
@@ -36,6 +35,7 @@ bool ParkSystem::validateRandomArea(int position){
 }
 bool ParkSystem::validateRandomTakenArea(int position){
     if(PARKAREA[position/MAX_NUM_EACH_COLUMN][position%MAX_NUM_EACH_COLUMN]==true){
+        cout<<"this park has no car taken,please try again!"<<endl;
         return true;
     }else{
         return false;
@@ -43,6 +43,18 @@ bool ParkSystem::validateRandomTakenArea(int position){
 }
 int ParkSystem::getFreeArea(){
     return freeCount;
+}
+void ParkSystem::setEntenceFlag(bool flag){
+    this->entenceFlag=flag;
+}
+void ParkSystem::setExitFlag(bool flag){
+    this->exitFlag=flag;
+}
+bool ParkSystem::getEntenceFlag(){
+    return entenceFlag;
+}
+bool ParkSystem::getExitFlag(){
+    return exitFlag;
 }
 void ParkSystem::setParkArea(Card card){
     int position=card.getTaken();

@@ -44,12 +44,20 @@ public:
     void init();
     void restoreSqlDate();
     void userInterface();
+    void automaticRun();
     void setTempTakenArea(int position);
     void setTakenArea(Card card);
     QString randomGenerateCardId();
     int animationParkPosition;
+signals:
+    void randomCarSignals();
+    void verifyEntenceSignals();
+    void verifyExitSignals();
+    void selectExitCarSignals();
 public slots:
     void timeDone();
+    void randomTimerEntenceDone();
+    void randomTimerExitDone();
     void randomCar();
     void disposalEntence();
     void disposalExit();
@@ -60,6 +68,8 @@ private:
     ValidateCard validateCard;
     ParkSystem parkSystem;
     QTimer *timer;
+    QTimer *randomTimerEntence;
+    QTimer *randomTimerExit;
     QPushButton *buttonArray[2][MAX_NUM_EACH_COLUMN];
     int initialGeometryX;
     int initialGeometryY;
